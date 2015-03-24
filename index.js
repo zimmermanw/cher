@@ -30,17 +30,18 @@
     });
 
     app.controller('homeController', function($scope, questionService) {
-        var vm = this;
-      questionService.getQuestion(function(data) {
-         vm.foo = data;
 
-      });
+
       
     });
 
     
-    app.controller('questionController', function(){
+    app.controller('questionController', function(questionService){
+          var vm = this;
+            questionService.getQuestion(function(data) {
+           vm.questions = data.questions;
 
+        });
     })
 
 

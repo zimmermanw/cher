@@ -1,24 +1,29 @@
-var options = [{'name':'Thomas', 'pic':'https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg'}, {'name': 'Andy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg'},{'name':'Jeremy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg'},{'name':'Anuj', 'pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/1e0/352/3a40db4.jpg'}, {'name': 'Zach','pic':'https://media.licdn.com/media/p/2/000/073/2ea/1966a91.jpg'},{'name':'Jake','pic':'https://media.licdn.com/media/p/1/000/0a2/088/2686c52.jpg'}]
-        {
-            'num' : 1,
-            'type' :'cast',
-            'question' : 'Who will cry first',
-            options : [{'name':'Thomas', 'pic':'https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg'}, {'name': 'Andy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg'},{'name':'Jeremy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg'}]
-            
-        },
-        {
-            'num' : 2,
-            'type' :'multiple',
-            'question' : 'Who will kiss first',
-            options : {'name':'Anuj', 'pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/1e0/352/3a40db4.jpg'}, {'name': 'Zach','pic':'https://media.licdn.com/media/p/2/000/073/2ea/1966a91.jpg'},{'name':'Jake','pic':'https://media.licdn.com/media/p/1/000/0a2/088/2686c52.jpg'}
-            
-        },
-        {
-            'num' : 3,
-            'type' :'cast',
-            'question' : 'Who will drink first',
-            options : [{'name':'Thomas', 'pic':'https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg'}, {'name': 'Andy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg'},{'name':'Jeremy','pic':'https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg'}]
-            
-        }
+    
 
-        ]
+{
+    "questions":[{
+            "question":"Who is die first",
+            "type":"cast",
+            "num":"1",
+            "options":[{"name":"Thomas", "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg"}, 
+                        {"name": "Andy","pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg"},
+                        {"name":"Jeremy","pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg"}]
+        },
+        {
+            "question":"Who will kiss first",
+            "type":"cast",
+            "num":"2",
+            "options":[{"name":"Anuj", "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/1e0/352/3a40db4.jpg"}, 
+                    {"name": "Zach","pic":"https://media.licdn.com/media/p/2/000/073/2ea/1966a91.jpg"},
+                    {"name":"Jake","pic":"https://media.licdn.com/media/p/1/000/0a2/088/2686c52.jpg"}]
+        },
+        {
+            "question":"Who will flirt first",
+            "type":"cast",
+            "num":"3",
+            "options":[{"name":"Thomas", "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg"}, 
+                        {"name": "Andy","pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg"},
+                        {"name":"Jeremy","pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg"}]
+        }
+    ]
+}

@@ -1,5 +1,16 @@
-<div ng-controller="homeController as home">
-	{{home.foo}}
-	{{home.foo}}
-	<!-- {{foo}} -->
+<div  ng-controller="questionController as question">
+	<form>
+		<div ng-repeat="questionObj in question.questions">
+		
+
+			<h1>{{questionObj.question}}?</h1>
+
+			<ul ng-repeat="option in questionObj.options">
+				<input type="radio" name="answer" value="{{option.name}}" >{{option.name}} <img ng-src="{{option.pic}}" width='100px' height="100px"/>
+
+			</ul>
+		</div>
+	</form> 
+
+
 </div>
