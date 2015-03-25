@@ -52,15 +52,18 @@
         sharedService.getPieces(function(data) {
            vm.pieces = data.pieces;
         });
-        vm.chew = function(event, id){
+        vm.clicked = function(event, id){
             var $selector = $(event.target);
             var name = ""
             function addPick(){
+                var type = $selector.data('round')
+                $('.long-term-pics').css('opacity', '1')
+                $('.long-term-pics').data('clicked',false)
                 $selector.data('clicked',true)
                 $selector.css('opacity', '.4')
                 for(var i=0,ii=vm.pieces.length; i < ii; i++){
                    if (vm.pieces[i].id == id) {
-                        sharedService.picks.longterm.hometown = vm.pieces[i].name
+                        sharedService.picks.longterm[type] = vm.pieces[i].name
                    }
                 }
             }
