@@ -1,0 +1,42 @@
+<input type='text' ng-model="main.message"/>
+    <div style="padding:0 20px" ng-controller="adminController as admin" >
+    	<button ng-click="admin.edit()">Edit</button>
+    	<button ng-click="admin.add()">Add</button>
+    	<div ng-show="admin.inEdit">
+
+	    	<form name="editForm" ng-submit="admin.editQuestion(question, selectedItem)">
+	    		<p>selected item is : {{selectedItem  }}</p>
+	    		<select form="editform" ng-model="selectedItem" >
+	    		  <option ng-repeat="ques in admin.questions" value="{{ques.num -1}}" ng-model="question.questions[selectedItem]">{{ques.num}}</option>
+	    		</select>
+	    		<input type="text" ng-model="admin.questions[selectedItem].question"/>
+	    		<input type="submit" value="ok"/>
+	    	</form>
+	    	<h1>{{question.questions[selectedItem].question}}</h1>
+	    	<h2 ng-repeat="option in question.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
+
+	    	<h5>{{admin.questions[selectedItem].question}}</h5>
+    	</div>
+
+    	<div ng-show="admin.inAdd">
+	    	{{question.message}}
+
+	    	<!-- <form name="adminForm" ng-submit="question.updateQuestion(question.questions[0].type)"> -->
+	    	<form name="adminForm" ng-submit="question.editQuestion(home, selectedItem)">
+	    		<!-- <p>selected item is : {{selectedItem  }}</p>
+	    		<select name="carlist" form="adminform" ng-model="selectedItem" >
+	    		  <option ng-repeat="ques in home.questions" value="{{ques.num -1}}" ng-model="question.questions[selectedItem]">{{ques.num}}</option>
+	    		</select> -->
+	    		<input type="text" ng-model="question.questions[selectedItem].question"/>
+	    		<input type="submit" value="ok"/>
+	    	</form>
+	    	<!-- <h1>{{home.questions[selectedItem].question}}</h1> -->
+	    	<!-- <h2 ng-repeat="option in home.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2> -->
+
+	    	<!-- <h5>{{question.questions[0].question}}</h5> -->
+    	</div>
+    
+
+
+    </div>
+

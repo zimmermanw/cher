@@ -10,7 +10,7 @@
             // route for the home page
             .when('/', {
                 templateUrl : 'pages/home.html',
-                controller  : 'homeController'
+                controller  : 'adminController'
             })
 
             // route for the about page
@@ -29,9 +29,28 @@
        }
     });
 
-    app.controller('homeController', function($scope, questionService) {
+    app.controller('mainController', function(){
+        this.message = 'hello'
+    })
 
+    app.controller('adminController', function($scope, questionService) {
+        var vm = this;
+        questionService.getQuestion(function(data) {
+           vm.questions = data.questions;
 
+        });
+        vm.editQuestion = function(ctl, selectedItem){
+            ctl.questions[selectedItem].question = vm.questions[selectedItem].question
+        }
+
+        vm.edit = function(){
+            vm.inEdit = true
+            vm.inAdd =  false
+        }
+        vm.add = function(){
+            vm.inAdd = true
+            vm.inEdit = false
+        }
       
     });
 

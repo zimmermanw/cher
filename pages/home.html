@@ -1,8 +1,8 @@
-<div  ng-controller="questionController as question">
+<div style="padding: 0 20px" >
 	<form>
 		<div ng-repeat="questionObj in question.questions">
 		
-
+			<input ng-model="question.questions[0].question"/>
 			<h1>{{questionObj.question}}?</h1>
 
 			<ul ng-repeat="option in questionObj.options">
