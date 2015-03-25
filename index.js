@@ -16,7 +16,7 @@
             // route for the about page
             .when('/about', {
                 templateUrl : 'pages/admin.html',
-                controller  : 'questionController'
+                controller  : 'homeController'
             })
 
     });
@@ -47,6 +47,19 @@
         sharedService.getPieces(function(data) {
            vm.pieces = data.pieces;
         });
+        vm.addPick = function(event, id){
+            var $selector = $(event.target)
+            if($selector.data('clicked') == false){
+                $selector.data('clicked',true)
+                $selector.css('opacity', '1')
+            } else {
+                $selector.data('clicked',false)
+                $selector.css('opacity', '.4')
+            }
+            for(var i=0,ii=vm.pieces.length; i < ii; i++){
+                // vm.pieces
+            }
+        }
     })
 
     app.controller('adminController', function($scope, sharedService) {
@@ -71,7 +84,7 @@
     });
 
     
-    app.controller('questionController', function(sharedService){
+    app.controller('homeController', function(sharedService){
           var vm = this;
             sharedService.getQuestion(function(data) {
            vm.questions = data.questions;

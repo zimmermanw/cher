@@ -3,63 +3,75 @@
 {
     "pieces":[{
             "name":"Thomas",
+            "id":"1",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg",
-            "isAlive":"true"
+            "isAlive":true
         },
         {
             "name":"Andy",
+            "id":"2",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Jermey",
+            "id":"3",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Anuj",
+            "id":"4",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/1e0/352/3a40db4.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Zach",
+            "id":"5",
             "pic":"https://media.licdn.com/media/p/2/000/073/2ea/1966a91.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Jake",
+            "id":"6",
             "pic":"https://media.licdn.com/media/p/1/000/0a2/088/2686c52.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Adam",
+            "id":"7",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/5/005/0a9/229/1af32bb.jpg",
             "isAlive":"false"   
         },
         {
             "name":"Kyle",
+            "id":"8",
             "pic":"https://media.licdn.com/media/p/1/000/0d8/0d5/11b8923.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Boris",
+            "id":"9",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/004/22e/31595b4.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Kapil",
+            "id":"10",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/0c7/0d4/17e245e.jpg",
             "isAlive":"false"   
         },
         {
             "name":"Greg",
+            "id":"11",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/067/11f/25b57df.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         },
         {
             "name":"Mario",
+            "id":"12",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/03e/3e5/136b3ca.jpg",
-            "isAlive":"true"   
+            "isAlive":true   
         }
     ]
 }
