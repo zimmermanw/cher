@@ -29,8 +29,9 @@
        }
     });
 
-    app.controller('mainController', function(){
-        this.message = 'hello'
+
+    app.controller('longTermPickController', function(){
+        
     })
 
     app.controller('adminController', function($scope, questionService) {

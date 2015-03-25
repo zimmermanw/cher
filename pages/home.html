@@ -1,8 +1,22 @@
 <div style="padding: 0 20px" >
-	<form>
+	<section ng-init="tab=1">
+		<ul class="nav nav-pills">
+			<li ng-class="{active:tab===1}"><a href ng-click="tab = 1">Long Term Picks</a></li>
+			<li ng-class="{active:tab===2}"><a href ng-click="tab = 2">Weekly Picks</a></li>
+			<li ng-class="{active:tab===3}"><a href ng-click="tab = 3">Questions</a></li>
+		</ul>
+	</section>
+	<div class="panel" ng-show="tab === 1">
+		<h1>Long Term Picks</h1>
+	</div>
+	<div class="panel" ng-show="tab === 2">
+		<h1>Weekly Picks</h1>
+	</div>
+	<div class="panel" ng-show="tab === 3">
+		<h1>Questions</h1>
+		<form>
 		<div ng-repeat="questionObj in question.questions">
 		
-			<input ng-model="question.questions[0].question"/>
 			<h1>{{questionObj.question}}?</h1>
 
 			<ul ng-repeat="option in questionObj.options">
@@ -11,6 +25,8 @@
 			</ul>
 		</div>
 	</form> 
+	</div>
+	
 
 
 </div>
