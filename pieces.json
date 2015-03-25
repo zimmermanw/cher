@@ -1,0 +1,66 @@
+    
+
+{
+    "pieces":[{
+            "name":"Thomas",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/103/243/02249dc.jpg",
+            "isAlive":"true"
+        },
+        {
+            "name":"Andy",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/000/133/2c5/08346d4.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Jermey",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/2cb/302/3704572.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Anuj",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/1e0/352/3a40db4.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Zach",
+            "pic":"https://media.licdn.com/media/p/2/000/073/2ea/1966a91.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Jake",
+            "pic":"https://media.licdn.com/media/p/1/000/0a2/088/2686c52.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Adam",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/5/005/0a9/229/1af32bb.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Kyle",
+            "pic":"https://media.licdn.com/media/p/1/000/0d8/0d5/11b8923.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Boris",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/2/000/004/22e/31595b4.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Kapil",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/4/000/142/3f6/1b0c7cf.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Greg",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/067/11f/25b57df.jpg",
+            "isAlive":"true"   
+        },
+        {
+            "name":"Kevin",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/18d/258/0c3bfb5.jpg",
+            "isAlive":"true"   
+        },
+        
+    ]
+}

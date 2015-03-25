@@ -29,6 +29,14 @@
        }
     });
 
+    app.directive('longTermPick', function() {
+      return {
+          restrict: 'E',
+          templateUrl: 'pages/long_term_picks.html',
+          controller: 'longTermPickController',
+          controllerAs: 'long'
+      };
+    });
 
     app.controller('longTermPickController', function(){
         
