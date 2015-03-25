@@ -34,7 +34,7 @@
         {
             "name":"Adam",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/5/005/0a9/229/1af32bb.jpg",
-            "isAlive":"true"   
+            "isAlive":"false"   
         },
         {
             "name":"Kyle",
@@ -48,8 +48,8 @@
         },
         {
             "name":"Kapil",
-            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/4/000/142/3f6/1b0c7cf.jpg",
-            "isAlive":"true"   
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/0c7/0d4/17e245e.jpg",
+            "isAlive":"false"   
         },
         {
             "name":"Greg",
@@ -57,10 +57,9 @@
             "isAlive":"true"   
         },
         {
-            "name":"Kevin",
-            "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/2/000/18d/258/0c3bfb5.jpg",
+            "name":"Mario",
+            "pic":"https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/000/03e/3e5/136b3ca.jpg",
             "isAlive":"true"   
-        },
-        
+        }
     ]
 }

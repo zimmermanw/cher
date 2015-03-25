@@ -21,10 +21,13 @@
 
     });
 
-    app.factory('questionService', function($http) {
+    app.factory('sharedService', function($http) {
        return {
          getQuestion: function(callback) {
            $http.get('/questions.json').success(callback);
+         },
+         getPieces: function(callback){
+            $http.get('/pieces.json').success(callback);
          }
        }
     });
@@ -38,13 +41,17 @@
       };
     });
 
-    app.controller('longTermPickController', function(){
-        
+    app.controller('longTermPickController', function(sharedService){
+        var vm = this;
+        vm.message = "Who will make it to Hometown Dates?"
+        sharedService.getPieces(function(data) {
+           vm.pieces = data.pieces;
+        });
     })
 
-    app.controller('adminController', function($scope, questionService) {
+    app.controller('adminController', function($scope, sharedService) {
         var vm = this;
-        questionService.getQuestion(function(data) {
+        sharedService.getQuestion(function(data) {
            vm.questions = data.questions;
 
         });
@@ -64,9 +71,9 @@
     });
 
     
-    app.controller('questionController', function(questionService){
+    app.controller('questionController', function(sharedService){
           var vm = this;
-            questionService.getQuestion(function(data) {
+            sharedService.getQuestion(function(data) {
            vm.questions = data.questions;
 
         });
