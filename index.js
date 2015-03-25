@@ -16,19 +16,24 @@
             // route for the about page
             .when('/about', {
                 templateUrl : 'pages/admin.html',
-                controller  : 'homeController'
+                controller  : 'gameController'
             })
 
     });
 
     app.factory('sharedService', function($http) {
+        var picks = {longterm: {hometown: 'jack',
+                                fantasy: 'jack',
+                                'final': 'jack'     
+                                        }}
        return {
          getQuestion: function(callback) {
            $http.get('/questions.json').success(callback);
          },
          getPieces: function(callback){
             $http.get('/pieces.json').success(callback);
-         }
+         },
+         picks: picks
        }
     });
 
@@ -47,19 +52,28 @@
         sharedService.getPieces(function(data) {
            vm.pieces = data.pieces;
         });
-        vm.addPick = function(event, id){
-            var $selector = $(event.target)
-            if($selector.data('clicked') == false){
+        vm.chew = function(event, id){
+            var $selector = $(event.target);
+            var name = ""
+            function addPick(){
                 $selector.data('clicked',true)
-                $selector.css('opacity', '1')
+                $selector.css('opacity', '.4')
+                for(var i=0,ii=vm.pieces.length; i < ii; i++){
+                   if (vm.pieces[i].id == id) {
+                        sharedService.picks.longterm.hometown = vm.pieces[i].name
+                   }
+                }
+            }
+            if($selector.data('clicked') == false){
+                addPick()
             } else {
                 $selector.data('clicked',false)
                 $selector.css('opacity', '.4')
             }
-            for(var i=0,ii=vm.pieces.length; i < ii; i++){
-                // vm.pieces
-            }
+            
         }
+            
+            
     })
 
     app.controller('adminController', function($scope, sharedService) {
@@ -84,12 +98,13 @@
     });
 
     
-    app.controller('homeController', function(sharedService){
+    app.controller('gameController', function(sharedService){
           var vm = this;
             sharedService.getQuestion(function(data) {
            vm.questions = data.questions;
-
         });
+            vm.picks = sharedService.picks
+            
     })
 
 
