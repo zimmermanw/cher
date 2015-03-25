@@ -1,4 +1,6 @@
     <div style="padding:0 20px" ng-controller="adminController as admin" >
+    	<h1>{{home.pieces[6].name}}</h1>
+    	<h1>{{home.pieces[6].isAlive}}</h1>
 
     	<button ng-click="admin.edit()">Edit</button>
     	<button ng-click="admin.add()">Add</button>
@@ -27,15 +29,17 @@
 	    	
     	</div>
     <br>
-     <select ng-model="selected" ng-options="piece.name for piece in home.pieces">
+    <div ng-controller="longTermPickController as long">
+     <select ng-model="selected" ng-options="piece.name for piece in admin.pieces">
     	</select>
     	<br>
-    	<div ng-show="selected">
+
+    	<div ng-show="selected" >
 	    		<p>selected item is : </p>
 	    		<h5>Name : {{selected.name}}</h5>
 	    		<h5 >Picture: <img ng-src="{{selected.pic}}" width='100px' height="100px"/></h5>
 	    		<h5 ng-model="selected.isAlive">Still in Game: {{selected.isAlive}}</h5>
-	    		<button ng-show="selected.isAlive == false" ng-click="admin.addPlayer(selected.id)">Add Player</button>
+	    		<button ng-show="selected.isAlive == false" ng-click="admin.addPlayer(home,selected.id)">Add Player</button>
 	    </div>
 
 	    <div  ng-repeat="piece in admin.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
@@ -43,6 +47,8 @@
 	      </div>
 	      <span>{{piece.name}}</span>
 	    </div>
+	    </div>
+
 
     </div>
 

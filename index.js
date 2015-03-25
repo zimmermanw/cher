@@ -49,9 +49,9 @@
     app.controller('longTermPickController', function(sharedService){
         var vm = this;
         vm.message = "Who will make it to Hometown Dates?"
-        sharedService.getPieces(function(data) {
-           vm.pieces = data.pieces;
-        });
+        // sharedService.getPieces(function(data) {
+        //    vm.pieces = data.pieces;
+        // });
         vm.clicked = function(event, id){
             var $selector = $(event.target);
             var name = ""
@@ -100,11 +100,12 @@
             vm.inAdd = true
             vm.inEdit = false
         }
-        vm.addPlayer = function(id){
-            console.log('in here')
+        vm.addPlayer = function(ctl,id){
+            console.log('in hy')
             for(var i=0,ii=vm.pieces.length; i < ii; i++){
                if (vm.pieces[i].id == id) {
-                    vm.pieces[i].isAlive = true
+                vm.pieces[i].isAlive = true
+                ctl.pieces[i].isAlive = vm.pieces[i].isAlive
                }
             }
         }
