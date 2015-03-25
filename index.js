@@ -85,6 +85,9 @@
            vm.questions = data.questions;
 
         });
+        sharedService.getPieces(function(data) {
+           vm.pieces = data.pieces;
+        });
         vm.editQuestion = function(ctl, selectedItem){
             ctl.questions[selectedItem].question = vm.questions[selectedItem].question
         }
@@ -97,6 +100,14 @@
             vm.inAdd = true
             vm.inEdit = false
         }
+        vm.addPlayer = function(id){
+            console.log('in here')
+            for(var i=0,ii=vm.pieces.length; i < ii; i++){
+               if (vm.pieces[i].id == id) {
+                    vm.pieces[i].isAlive = true
+               }
+            }
+        }
       
     });
 
@@ -107,7 +118,9 @@
            vm.questions = data.questions;
         });
             vm.picks = sharedService.picks
-            
+            sharedService.getPieces(function(data) {
+                vm.pieces = data.pieces;
+            });      
     })
 
 

@@ -1,4 +1,4 @@
-    
+
 
 {
     "pieces":[{
@@ -41,7 +41,7 @@
             "name":"Adam",
             "id":"7",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_400_400/p/5/005/0a9/229/1af32bb.jpg",
-            "isAlive":"false"   
+            "isAlive":false
         },
         {
             "name":"Kyle",
@@ -59,7 +59,7 @@
             "name":"Kapil",
             "id":"10",
             "pic":"https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/0c7/0d4/17e245e.jpg",
-            "isAlive":"false"   
+            "isAlive":false
         },
         {
             "name":"Greg",
