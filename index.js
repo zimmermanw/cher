@@ -157,8 +157,11 @@
                }
             }
         }
-        vm.addQuestion = function(ctl,ques){
-            ctl.questions.push({question:ques})
+        vm.addQuestion = function(ctl,ques, op1,op2,op3,op4){
+            var options = [op1,op2,op3,op4]
+            ctl.questions.push({question:ques,
+                                options: options
+                                })
         }
       
     });

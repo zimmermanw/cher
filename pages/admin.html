@@ -34,9 +34,9 @@
     			</div>
     		</div>
 
-    		<div  ng-show="adTab ===2">
+    		<div  ng-show="adTab ===2" ng-init="optionTab=1">
 		    	<button ng-click="admin.edit()">Edit</button>
-		    	<button ng-click="admin.add()">Add</button>
+		    	<button ng-click="admin.add(); optionTab=1">Add</button>
 		    	<div ng-show="admin.inEdit">
 
 			    	<form name="editForm" ng-submit="admin.editQuestion(home, selectedItem)">
@@ -53,11 +53,11 @@
 			    	<h5>{{admin.questions[selectedItem].question}}</h5>
 		    	</div>
 
-		    	<div ng-show="admin.inAdd" ng-init="optionTab=1">
+		    	<div ng-show="admin.inAdd" >
 
-			    	
+			    	<div ng-show="optionTab<5">
 			    		<input type="text" ng-model="newQuestion"/>
-			    		<button ng-click="admin.addQuestion(home,newQuestion)">Add</button>
+			    		<button ng-click="admin.addQuestion(home,newQuestion,newSelect1, newSelect2, newSelect3, newSelect4); optionTab=5">Add</button>
 			    		<h2>{{newQuestion}}</h2>
 			    		<select ng-model="newSelect1" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=2">Ok</button>
 			    		<div ng-show="newSelect1">
@@ -80,11 +80,15 @@
 				  	    	</div>
 			  	    	</div>
 			  	    	<div ng-show="optionTab>=4">
-				  	    	<select  ng-model="newSelect4" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=4">Ok</button>
+				  	    	<select  ng-model="newSelect4" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="">Ok</button>
 				    		<div ng-show="newSelect4">
 				    			<h5>Name : {{newSelect4.name}}</h5>
 				  	    		<h5 >Picture: <img ng-src="{{newSelect4.pic}}" width='100px' height="100px"/></h5>
 				  	    	</div>
+			  	    	</div>
+			  	    </div>
+			  	    	<div ng-show="optionTab==5">
+			  	    		<h3>Question Added</h3>
 			  	    	</div>
 		    	</div>
     		</div>
