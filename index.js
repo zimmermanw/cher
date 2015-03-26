@@ -60,18 +60,27 @@
         // sharedService.getPieces(function(data) {
         //    vm.pieces = data.pieces;
         // });
-        vm.clicked = function(event, id, ctl){
+        vm.clicked = function(event, id, ctl, type){
             var $selector = $(event.target);
             var name = ""
             function addPick(){
-                var type = $selector.data('round')
+                console.log('in add pick')
+                var round = $selector.data('round')
                 $('.long-term-pics').css('opacity', '1')
                 $('.long-term-pics').data('clicked',false)
                 $selector.data('clicked',true)
                 $selector.css('opacity', '.4')
+                console.log(round)
                 for(var i=0,ii=ctl.pieces.length; i < ii; i++){
                    if (ctl.pieces[i].id == id) {
-                        sharedService.picks.longterm[type] = ctl.pieces[i].name
+                    console.log('in if')
+                        if(type == longterm){
+                            console.log('in long')
+                        sharedService.picks[type][round] = ctl.pieces[i].name
+                        } else {
+                            console.log('in weekly')
+                            sharedService.picks[type] = ctl.pieces[i].name
+                        }
                    }
                 }
             }
