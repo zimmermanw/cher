@@ -142,10 +142,17 @@
             vm.inEdit = false
         }
         vm.addPlayer = function(ctl,id){
-            console.log('in hy')
             for(var i=0,ii=vm.pieces.length; i < ii; i++){
                if (vm.pieces[i].id == id) {
                 vm.pieces[i].isAlive = true
+                ctl.pieces[i].isAlive = vm.pieces[i].isAlive
+               }
+            }
+        }
+        vm.removePlayer = function(ctl, id){
+            for(var i=0,ii=vm.pieces.length; i < ii; i++){
+               if (vm.pieces[i].id == id) {
+                vm.pieces[i].isAlive = false
                 ctl.pieces[i].isAlive = vm.pieces[i].isAlive
                }
             }

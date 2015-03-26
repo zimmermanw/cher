@@ -23,6 +23,7 @@
 			  	    		<h5 >Picture: <img ng-src="{{selected.pic}}" width='100px' height="100px"/></h5>
 			  	    		<h5 ng-model="selected.isAlive">Still in Game: {{selected.isAlive}}</h5>
 			  	    		<button ng-show="selected.isAlive == false" ng-click="admin.addPlayer(home,selected.id)">Add Player</button>
+			  	    		<button ng-show="selected.isAlive == true" ng-click="admin.removePlayer(home,selected.id)">Remove Player</button>
 			  	    </div>
 			  	    <div style="margin-top: 20px">
 				  	    <div ng-repeat="piece in admin.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center; " >
