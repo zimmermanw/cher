@@ -18,7 +18,7 @@
 			<h2>{{weekly.message}}</h2>
 		    <div class="row">
 		        <div  ng-repeat="piece in home.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
-		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-round="weekly" data-clicked="false" ng-click="long.clicked($event, piece.id, home, weekly)" >
+		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-round="weekly" data-type="weekly" data-clicked="false" ng-click="long.clicked($event, piece.id, home)" >
 		          </div>
 		          <span>{{piece.name}}</span>
 		        </div>
@@ -26,14 +26,14 @@
 		  
 		</div>
 	</div>
-	<div class="panel" ng-show="tab === 3">
+	<div class="panel" ng-show="tab === 3" ng-controller="questionController as question">
 		<h1>Questions</h1>
 		<div ng-repeat="questionObj in home.questions">
 			<div class="container">
 				<div class="row">
-					<h1>{{questionObj.question}}?</h1>
+					<h1>{{questionObj.question}}? <span style="font-size: 26px">{{questionObj.answer}}</span></h1> 
 					<div  ng-repeat="option in questionObj.options" class="col-sm-3 col-md-3"style="text-align:center;" >
-					  <div style="width:100px; height:100px; background-image: url({{option.pic}}); background-size:cover; margin:0 auto;" data-round="question" data-clicked="false" ng-click="" >
+					  <div class="ques{{questionObj.num}}" style="width:100px; height:100px; background-image: url({{option.pic}}); background-size:cover; margin:0 auto;" data-round="question" data-clicked="false" ng-click="question.answer($event, questionObj, option.name)" >
 					  </div>
 					  <span>{{option.name}}</span>
 					</div>

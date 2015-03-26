@@ -60,25 +60,24 @@
         // sharedService.getPieces(function(data) {
         //    vm.pieces = data.pieces;
         // });
-        vm.clicked = function(event, id, ctl, type){
+        vm.clicked = function(event, id, ctl){
             var $selector = $(event.target);
             var name = ""
+            console.log('in click long')
             function addPick(){
-                console.log('in add pick')
                 var round = $selector.data('round')
+                var type = $selector.data('type')
                 $('.long-term-pics').css('opacity', '1')
                 $('.long-term-pics').data('clicked',false)
                 $selector.data('clicked',true)
                 $selector.css('opacity', '.4')
-                console.log(round)
+                console.log(type)
+
                 for(var i=0,ii=ctl.pieces.length; i < ii; i++){
                    if (ctl.pieces[i].id == id) {
-                    console.log('in if')
-                        if(type == longterm){
-                            console.log('in long')
+                        if(type == 'longterm'){
                         sharedService.picks[type][round] = ctl.pieces[i].name
                         } else {
-                            console.log('in weekly')
                             sharedService.picks[type] = ctl.pieces[i].name
                         }
                    }
@@ -94,6 +93,31 @@
         }
             
             
+    })
+
+    app.controller('questionController', function(){
+        this.answer = function(event, obj, name){
+            console.log('in answer')
+            console.log(obj)
+            var $selector = $(event.target);
+            function addPick(){
+
+                $('.ques'+obj.num+'').css('opacity', '1')
+                $('.ques'+obj.num+'').data('clicked',false)
+                $selector.data('clicked',true)
+                $selector.css('opacity', '.4')
+
+                obj.answer = name
+            }
+            if($selector.data('clicked') == false){
+                console.log('click')
+                addPick()
+            } else {
+                console.log('not click')
+                $selector.data('clicked',false)
+                $selector.css('opacity', '1')
+            }
+        }
     })
 
     app.controller('adminController', function($scope, sharedService) {
