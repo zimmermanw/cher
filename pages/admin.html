@@ -2,9 +2,8 @@
     	<h1>Admin Panel</h1>
     		<section ng-init="adTab=1">
     			<ul class="nav nav-pills">
-    				<li ng-class="{active:adTab===1}"><a href ng-click="adTab = 1">Edit Long Term Picks</a></li>
-    				<li ng-class="{active:adTab===2}"><a href ng-click="adTab = 2">Edit Weekly Picks</a></li>
-    				<li ng-class="{active:adTab===3}"><a href ng-click="adTab = 3">Edit Questions</a></li>
+    				<li ng-class="{active:adTab===1}"><a href ng-click="adTab = 1">Edit Picks</a></li>
+    				<li ng-class="{active:adTab===3}"><a href ng-click="adTab = 2">Edit Questions</a></li>
     			</ul>
     		</section>
 
@@ -36,9 +35,6 @@
     		</div>
 
     		<div  ng-show="adTab ===2">
-    		</div>
-
-    		<div  ng-show="adTab ===3">
 		    	<button ng-click="admin.edit()">Edit</button>
 		    	<button ng-click="admin.add()">Add</button>
 		    	<div ng-show="admin.inEdit">
@@ -57,13 +53,39 @@
 			    	<h5>{{admin.questions[selectedItem].question}}</h5>
 		    	</div>
 
-		    	<div ng-show="admin.inAdd">
+		    	<div ng-show="admin.inAdd" ng-init="optionTab=1">
 
 			    	
 			    		<input type="text" ng-model="newQuestion"/>
 			    		<button ng-click="admin.addQuestion(home,newQuestion)">Add</button>
-
 			    		<h2>{{newQuestion}}</h2>
+			    		<select ng-model="newSelect1" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=2">Ok</button>
+			    		<div ng-show="newSelect1">
+			    			<h5>Name : {{newSelect1.name}}</h5>
+			  	    		<h5 >Picture: <img ng-src="{{newSelect1.pic}}" width='100px' height="100px"/></h5>
+			  	    	</div>
+
+			  	    	<div ng-show="optionTab>=2">
+				  	    	<select  ng-model="newSelect2" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=3">Ok</button>
+				    		<div ng-show="newSelect2">
+				    			<h5>Name : {{newSelect2.name}}</h5>
+				  	    		<h5 >Picture: <img ng-src="{{newSelect2.pic}}" width='100px' height="100px"/></h5>
+				  	    	</div>
+			  	    	</div>
+			  	    	<div ng-show="optionTab>=3">
+				  	    	<select  ng-model="newSelect3" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=4">Ok</button>
+				    		<div ng-show="newSelect3">
+				    			<h5>Name : {{newSelect3.name}}</h5>
+				  	    		<h5 >Picture: <img ng-src="{{newSelect3.pic}}" width='100px' height="100px"/></h5>
+				  	    	</div>
+			  	    	</div>
+			  	    	<div ng-show="optionTab>=4">
+				  	    	<select  ng-model="newSelect4" ng-options="piece.name for piece in admin.pieces"></select><button ng-click="optionTab=4">Ok</button>
+				    		<div ng-show="newSelect4">
+				    			<h5>Name : {{newSelect4.name}}</h5>
+				  	    		<h5 >Picture: <img ng-src="{{newSelect4.pic}}" width='100px' height="100px"/></h5>
+				  	    	</div>
+			  	    	</div>
 		    	</div>
     		</div>
 
