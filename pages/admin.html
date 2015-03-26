@@ -49,7 +49,10 @@
 			    		<input type="submit" value="ok"/>
 			    	</form>
 			    	<h1>{{admin.questions[selectedItem].question}}</h1>
-			    	<h2 ng-repeat="option in admin.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
+			    	<h2 ng-repeat="option in admin.questions[selectedItem].options" >{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/>
+			    		<select ng-model="chewy"><option ng-repeat="piece1 in admin.pieces" value="{{piece1.name}}">{{piece1.name}}</option></select>
+			    		{{chewy}}
+			    	</h2>
 
 		    	</div>
 
