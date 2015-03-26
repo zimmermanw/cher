@@ -3,12 +3,13 @@
     		<section ng-init="adTab=1">
     			<ul class="nav nav-pills">
     				<li ng-class="{active:adTab===1}"><a href ng-click="adTab = 1">Edit Picks</a></li>
-    				<li ng-class="{active:adTab===3}"><a href ng-click="adTab = 2">Edit Questions</a></li>
+    				<li ng-class="{active:adTab===3}"><a href ng-click="adTab = 2; admin.init(home)">Edit Questions</a></li>
     			</ul>
     		</section>
 
     		<div  ng-show="adTab === 1">
     			<div class="container" ng-controller="longTermPickController as long">
+    				
 			      	<br>
 			      	<br>
 
@@ -42,15 +43,14 @@
 			    	<form name="editForm" ng-submit="admin.editQuestion(home, selectedItem)">
 			    		<p>selected item is : {{selectedItem  }}</p>
 			    		<select form="editform" ng-model="selectedItem" >
-			    		  <option ng-repeat="ques in admin.questions" value="{{ques.num -1}}" ng-model="home.questions[selectedItem]">{{ques.num}}</option>
+			    		  <option ng-repeat="ques in admin.questions" value="{{ques.num -1}}" ng-model="admin.questions[selectedItem]">{{ques.num}}</option>
 			    		</select>
 			    		<input type="text" ng-model="admin.questions[selectedItem].question"/>
 			    		<input type="submit" value="ok"/>
 			    	</form>
-			    	<h1>{{home.questions[selectedItem].question}}</h1>
-			    	<h2 ng-repeat="option in home.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
+			    	<h1>{{admin.questions[selectedItem].question}}</h1>
+			    	<h2 ng-repeat="option in admin.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
 
-			    	<h5>{{admin.questions[selectedItem].question}}</h5>
 		    	</div>
 
 		    	<div ng-show="admin.inAdd" >

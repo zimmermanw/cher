@@ -122,13 +122,18 @@
 
     app.controller('adminController', function($scope, sharedService) {
         var vm = this;
-        sharedService.getQuestion(function(data) {
-           vm.questions = data.questions;
+        // sharedService.getQuestion(function(data) {
+        //    vm.questions = data.questions;
 
-        });
+        // });
         sharedService.getPieces(function(data) {
            vm.pieces = data.pieces;
         });
+
+        vm.init = function(ctl){
+            vm.questions = Object.create(ctl.questions)
+        }
+
         vm.editQuestion = function(ctl, selectedItem){
             ctl.questions[selectedItem].question = vm.questions[selectedItem].question
         }
@@ -159,9 +164,16 @@
         }
         vm.addQuestion = function(ctl,ques, op1,op2,op3,op4){
             var options = [op1,op2,op3,op4]
+            var num = ctl.questions.length + 1
             ctl.questions.push({question:ques,
+                                num: num,
                                 options: options
                                 })
+            vm.questions.push({question:ques,
+                                num: num,
+                                options: options
+                                })
+
         }
       
     });
