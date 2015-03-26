@@ -1,4 +1,9 @@
 <h1>Long Term Picks</h1>
+
+	<h2 >Your Picks for Hometown Dates: {{home.picks.longterm.hometown}}</h2>
+	<h2 >Your Picks for Fantasy Suite: {{home.picks.longterm.fantasy}}</h2>
+	<h2 >Your Picks for Final Rose: {{home.picks.longterm.final}}</h2>
+
 	<section ng-init="lgTab=1">
 		<ul class="nav nav-pills">
 			<li ng-class="{active:lgTab===1}"><a href ng-click="lgTab = 1">Hometown</a></li>
@@ -9,10 +14,10 @@
 	<div class="panel" ng-show="lgTab === 1">
 		<h1>HomeTown</h1>
 		<div class="container">
-			<h2>{{long.message}}</h2>
+			<h2>{{long.homeMessage}}</h2>
 		    <div class="row">
 		        <div  ng-repeat="piece in home.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
-		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-round="hometown" data-clicked="false" ng-click="long.clicked($event, piece.id)" >
+		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-round="hometown" data-clicked="false" ng-click="long.clicked($event, piece.id, home)" >
 		          </div>
 		          <span>{{piece.name}}</span>
 		        </div>
@@ -23,10 +28,10 @@
 	<div class="panel" ng-show="lgTab === 2">
 		<h1>Fantasy Suite</h1>
 		<div class="container">
-			<h2>{{long.message}}</h2>
+			<h2>{{long.fantasyMessage}}</h2>
 		    <div class="row">
 		        <div  ng-repeat="piece in home.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
-		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="fantasy" ng-click="long.clicked($event, piece.id)" >
+		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="fantasy" ng-click="long.clicked($event, piece.id, home)" >
 		          </div>
 		          <span>{{piece.name}}</span>
 		        </div>
@@ -36,10 +41,10 @@
 	<div class="panel" ng-show="lgTab === 3">
 		<h1>Final Rose</h1>
 		<div class="container">
-			<h2>{{long.message}}</h2>
+			<h2>{{long.finalMessage}}</h2>
 		    <div class="row">
 		        <div  ng-repeat="piece in home.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
-		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="final" ng-click="long.clicked($event, piece.id)" >
+		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="final" ng-click="long.clicked($event, piece.id, home)" >
 		          </div>
 		          <span>{{piece.name}}</span>
 		        </div>

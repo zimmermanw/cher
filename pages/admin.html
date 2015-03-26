@@ -1,54 +1,73 @@
     <div style="padding:0 20px" ng-controller="adminController as admin" >
-    	<h1>{{home.pieces[6].name}}</h1>
-    	<h1>{{home.pieces[6].isAlive}}</h1>
+    	<h1>Admin Panel</h1>
+    		<section ng-init="adTab=1">
+    			<ul class="nav nav-pills">
+    				<li ng-class="{active:adTab===1}"><a href ng-click="adTab = 1">Edit Long Term Picks</a></li>
+    				<li ng-class="{active:adTab===2}"><a href ng-click="adTab = 2">Edit Weekly Picks</a></li>
+    				<li ng-class="{active:adTab===3}"><a href ng-click="adTab = 3">Edit Questions</a></li>
+    			</ul>
+    		</section>
 
-    	<button ng-click="admin.edit()">Edit</button>
-    	<button ng-click="admin.add()">Add</button>
-    	<div ng-show="admin.inEdit">
+    		<div  ng-show="adTab === 1">
+    			<div class="container" ng-controller="longTermPickController as long">
+			      	<br>
+			      	<br>
 
-	    	<form name="editForm" ng-submit="admin.editQuestion(home, selectedItem)">
-	    		<p>selected item is : {{selectedItem  }}</p>
-	    		<select form="editform" ng-model="selectedItem" >
-	    		  <option ng-repeat="ques in admin.questions" value="{{ques.num -1}}" ng-model="home.questions[selectedItem]">{{ques.num}}</option>
-	    		</select>
-	    		<input type="text" ng-model="admin.questions[selectedItem].question"/>
-	    		<input type="submit" value="ok"/>
-	    	</form>
-	    	<h1>{{home.questions[selectedItem].question}}</h1>
-	    	<h2 ng-repeat="option in home.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
+			       <select ng-model="selected" ng-options="piece.name for piece in admin.pieces">
+			      	</select>
+			      	<br>
 
-	    	<h5>{{admin.questions[selectedItem].question}}</h5>
-    	</div>
+			      	<div ng-show="selected" >
+			  	    		<p>selected item is : </p>
+			  	    		<h5>Name : {{selected.name}}</h5>
+			  	    		<h5 >Picture: <img ng-src="{{selected.pic}}" width='100px' height="100px"/></h5>
+			  	    		<h5 ng-model="selected.isAlive">Still in Game: {{selected.isAlive}}</h5>
+			  	    		<button ng-show="selected.isAlive == false" ng-click="admin.addPlayer(home,selected.id)">Add Player</button>
+			  	    </div>
+			  	    <div style="margin-top: 20px">
+				  	    <div ng-repeat="piece in admin.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center; " >
+				  	      <div style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="fantasy"  >
+				  	      </div>
+				  	      <span>{{piece.name}}</span>
+				  	    </div>
+    			  	</div>
+    			</div>
+    		</div>
 
-    	<div ng-show="admin.inAdd">
-	    	{{home.message}}
+    		<div  ng-show="adTab ===2">
+    		</div>
 
-	    	
-	    		<input type="text" ng-model="question.questions[selectedItem].question"/>
-	    		<input type="submit" value="ok"/>
-	    	
-    	</div>
-    <br>
-    <div ng-controller="longTermPickController as long">
-     <select ng-model="selected" ng-options="piece.name for piece in admin.pieces">
-    	</select>
-    	<br>
+    		<div  ng-show="adTab ===3">
+		    	<button ng-click="admin.edit()">Edit</button>
+		    	<button ng-click="admin.add()">Add</button>
+		    	<div ng-show="admin.inEdit">
 
-    	<div ng-show="selected" >
-	    		<p>selected item is : </p>
-	    		<h5>Name : {{selected.name}}</h5>
-	    		<h5 >Picture: <img ng-src="{{selected.pic}}" width='100px' height="100px"/></h5>
-	    		<h5 ng-model="selected.isAlive">Still in Game: {{selected.isAlive}}</h5>
-	    		<button ng-show="selected.isAlive == false" ng-click="admin.addPlayer(home,selected.id)">Add Player</button>
-	    </div>
+			    	<form name="editForm" ng-submit="admin.editQuestion(home, selectedItem)">
+			    		<p>selected item is : {{selectedItem  }}</p>
+			    		<select form="editform" ng-model="selectedItem" >
+			    		  <option ng-repeat="ques in admin.questions" value="{{ques.num -1}}" ng-model="home.questions[selectedItem]">{{ques.num}}</option>
+			    		</select>
+			    		<input type="text" ng-model="admin.questions[selectedItem].question"/>
+			    		<input type="submit" value="ok"/>
+			    	</form>
+			    	<h1>{{home.questions[selectedItem].question}}</h1>
+			    	<h2 ng-repeat="option in home.questions[selectedItem].options">{{option.name}}<img ng-src="{{option.pic}}" width='100px' height="100px"/></h2>
 
-	    <div  ng-repeat="piece in admin.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
-	      <div style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-clicked="false" data-round="fantasy"  >
-	      </div>
-	      <span>{{piece.name}}</span>
-	    </div>
-	    </div>
+			    	<h5>{{admin.questions[selectedItem].question}}</h5>
+		    	</div>
 
+		    	<div ng-show="admin.inAdd">
+			    	{{home.message}}
+
+			    	
+			    		<input type="text" ng-model="question.questions[selectedItem].question"/>
+			    		<input type="submit" value="ok"/>
+			    	
+		    	</div>
+    		</div>
+
+
+    	
 
     </div>
 

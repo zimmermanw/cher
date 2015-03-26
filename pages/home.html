@@ -1,8 +1,5 @@
 <div style="padding: 0 20px" >
-	<div >{{home.picks.longterm.hometown}}</div>
-	<div >{{home.picks.longterm.fantasy}}</div>
-	<div >{{home.picks.longterm.final}}</div>
-
+	
 	<section ng-init="tab=1">
 		<ul class="nav nav-pills">
 			<li ng-class="{active:tab===1}"><a href ng-click="tab = 1">Long Term Picks</a></li>
@@ -13,22 +10,40 @@
 	<div class="panel" ng-show="tab === 1">
 		<long-term-pick/>
 	</div>
-	<div class="panel" ng-show="tab === 2">
+	<div class="panel" ng-show="tab === 2" ng-controller="weeklyPickController as weekly">
 		<h1>Weekly Picks</h1>
+
+		<h4>Your picks for elimination are: {{home.picks.weekly}}</h4>
+		<div class="container">
+			<h2>{{weekly.message}}</h2>
+		    <div class="row">
+		        <div  ng-repeat="piece in home.pieces" ng-if="piece.isAlive == true " class="col-sm-3 col-md-3" style="text-align:center" >
+		          <div class="long-term-pics" style="width:100px; height:100px; background-image: url({{piece.pic}}); background-size:cover; margin:0 auto;" data-round="hometown" data-clicked="false" ng-click="long.clicked($event, piece.id, home)" >
+		          </div>
+		          <span>{{piece.name}}</span>
+		        </div>
+		     </div>
+		  
+		</div>
 	</div>
 	<div class="panel" ng-show="tab === 3">
 		<h1>Questions</h1>
-		<form>
 		<div ng-repeat="questionObj in home.questions">
-		
-			<h1>{{questionObj.question}}?</h1>
-
-			<ul ng-repeat="option in questionObj.options">
+			<div class="container">
+				<div class="row">
+					<h1>{{questionObj.question}}?</h1>
+					<div  ng-repeat="option in questionObj.options" class="col-sm-3 col-md-3"style="text-align:center;" >
+					  <div style="width:100px; height:100px; background-image: url({{option.pic}}); background-size:cover; margin:0 auto;" data-round="question" data-clicked="false" ng-click="" >
+					  </div>
+					  <span>{{option.name}}</span>
+					</div>
+				</div>
+			</div>
+			<!-- <ul ng-repeat="option in questionObj.options">
 				<input type="radio" name="answer" value="{{option.name}}" >{{option.name}} <img ng-src="{{option.pic}}" width='100px' height="100px"/>
 
-			</ul>
+			</ul> -->
 		</div>
-	</form> 
 	</div>
 	
 

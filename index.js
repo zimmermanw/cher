@@ -21,11 +21,17 @@
 
     });
 
+    app.controller('weeklyPickController', function(){
+        this.message = "Who will be eliminated this week?";
+    })
+
     app.factory('sharedService', function($http) {
-        var picks = {longterm: {hometown: 'jack',
-                                fantasy: 'jack',
-                                'final': 'jack'     
-                                        }}
+        var picks = {longterm: {hometown: '',
+                                fantasy: '',
+                                'final': ''     
+                                        },
+                    weekly: "Bob"
+                                    }
        return {
          getQuestion: function(callback) {
            $http.get('/questions.json').success(callback);
@@ -48,11 +54,13 @@
 
     app.controller('longTermPickController', function(sharedService){
         var vm = this;
-        vm.message = "Who will make it to Hometown Dates?"
+        vm.homeMessage = "Who will make it to Hometown Dates?"
+        vm.fantasyMessage = "Who will make it to the Fantasy Suite?"
+        vm.finalMessage = "Who will make it to the final rose ceremony?"
         // sharedService.getPieces(function(data) {
         //    vm.pieces = data.pieces;
         // });
-        vm.clicked = function(event, id){
+        vm.clicked = function(event, id, ctl){
             var $selector = $(event.target);
             var name = ""
             function addPick(){
@@ -61,9 +69,9 @@
                 $('.long-term-pics').data('clicked',false)
                 $selector.data('clicked',true)
                 $selector.css('opacity', '.4')
-                for(var i=0,ii=vm.pieces.length; i < ii; i++){
-                   if (vm.pieces[i].id == id) {
-                        sharedService.picks.longterm[type] = vm.pieces[i].name
+                for(var i=0,ii=ctl.pieces.length; i < ii; i++){
+                   if (ctl.pieces[i].id == id) {
+                        sharedService.picks.longterm[type] = ctl.pieces[i].name
                    }
                 }
             }
