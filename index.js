@@ -157,6 +157,9 @@
                }
             }
         }
+        vm.addQuestion = function(ctl,ques){
+            ctl.questions.push({question:ques})
+        }
       
     });
 

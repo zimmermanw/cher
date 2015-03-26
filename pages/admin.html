@@ -58,12 +58,12 @@
 		    	</div>
 
 		    	<div ng-show="admin.inAdd">
-			    	{{home.message}}
 
 			    	
-			    		<input type="text" ng-model="question.questions[selectedItem].question"/>
-			    		<input type="submit" value="ok"/>
-			    	
+			    		<input type="text" ng-model="newQuestion"/>
+			    		<button ng-click="admin.addQuestion(home,newQuestion)">Add</button>
+
+			    		<h2>{{newQuestion}}</h2>
 		    	</div>
     		</div>
 
