@@ -181,6 +181,12 @@
     
     app.controller('gameController', function(sharedService){
           var vm = this;
+          vm.changeColorHome = function(){
+            $('body').css('background-color', 'white')
+            }
+        vm.changeColorAdmin = function(){
+            $('body').css('background-color', '#acacac')
+            }
             sharedService.getQuestion(function(data) {
            vm.questions = data.questions;
         });
@@ -188,6 +194,8 @@
             sharedService.getPieces(function(data) {
                 vm.pieces = data.pieces;
             });      
+
+
     })
 
 
